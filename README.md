@@ -52,10 +52,12 @@ dataset = version.download("yolov8")
 - Explore deployment options for practical waste sorting applications.
 
 ## Result
-<img width="648" height="310" alt="image" src="https://github.com/user-attachments/assets/50c9d5aa-e488-4732-a4a3-da6a39f4b310" />
-<img width="477" height="396" alt="image" src="https://github.com/user-attachments/assets/37b43f2c-e4ac-40a8-8235-a7b7d0528136" />
-<img width="289" height="245" alt="image" src="https://github.com/user-attachments/assets/17f48338-7bed-49c3-80bb-3b26c2f1e68c" />
-<img width="333" height="270" alt="image" src="https://github.com/user-attachments/assets/13f8354f-226f-4300-a24b-7cc77c461dfb" />
+### Web Application
+<img width="700" height="310" alt="image" src="https://github.com/user-attachments/assets/50c9d5aa-e488-4732-a4a3-da6a39f4b310" />
+### Object Detection Results
+<img width="450" height="400" alt="image" src="https://github.com/user-attachments/assets/37b43f2c-e4ac-40a8-8235-a7b7d0528136" />
+<img width="300" height="250" alt="image" src="https://github.com/user-attachments/assets/17f48338-7bed-49c3-80bb-3b26c2f1e68c" />
+<img width="300" height="250" alt="image" src="https://github.com/user-attachments/assets/13f8354f-226f-4300-a24b-7cc77c461dfb" />
 
 ## 👤 Author
 
