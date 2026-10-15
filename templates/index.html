@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO ORGANIC AND INORGANIC DETECTION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #video-container {
+            width: 640px;
+            height: 480px;
+            border: 2px solid #ccc;
+            background-color: #000;
+            position: relative;
+        }
+
+        #video-feed {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* tombol kembali kiri atas */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 14px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .back-btn:hover {
+            background-color: #1976D2;
+        }
+
+        /* container tombol start stop */
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .control-btn {
+            width: 130px;
+            padding: 12px 0;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .start-btn { background-color: #4CAF50; }
+        .stop-btn { background-color: #f44336; }
+        .camera-btn { background-color: #FF9800; }
+
+        .control-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* indikator status */
+        #status {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .status-on { color: green; }
+        .status-off { color: red; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Back ke run.html -->
+    <a href="{{ url_for('run_page') }}" class="back-btn">Back</a>
+
+    <h1>YOLO ORGANIC AND INORGANIC DETECTION</h1>
+
+    <div id="video-container">
+        <img src="{{ url_for('video_feed') }}" alt="Video Feed" id="video-feed">
+    </div>
+
+    <!-- START / STOP / STOP CAMERA -->
+    <div class="controls">
+        <a href="{{ url_for('start_detection') }}">
+            <button class="control-btn start-btn">START</button>
+        </a>
+        <a href="{{ url_for('stop_detection') }}">
+            <button class="control-btn stop-btn">STOP</button>
+        </a>
+        <a href="{{ url_for('stop_camera') }}">
+            <button class="control-btn camera-btn">STOP CAMERA</button>
+        </a>
+    </div>
+
+    <!-- indikator status -->
+    <div id="status" class="status-off">Detection: OFF</div>
+
+    <script>
+        // Cek status YOLO setiap detik
+        async function updateStatus() {
+            try {
+                const response = await fetch('/detection_status');
+                const data = await response.json();
+                const statusDiv = document.getElementById('status');
+                if(data.active) {
+                    statusDiv.textContent = "Detection: ON";
+                    statusDiv.className = "status-on";
+                } else {
+                    statusDiv.textContent = "Detection: OFF";
+                    statusDiv.className = "status-off";
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        setInterval(updateStatus, 1000); // update tiap 1 detik
+        updateStatus();
+    </script>
+
+</body>
+</html>

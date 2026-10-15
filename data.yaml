@@ -1,0 +1,7 @@
+names:
+  0: Anorganik
+  1: Organik
+path: C:/xampp/htdocs/Proyek Profesional/dataset
+test: C:/xampp/htdocs/Proyek Profesional/dataset/test/images
+train: C:/xampp/htdocs/Proyek Profesional/dataset/train/images
+val: C:/xampp/htdocs/Proyek Profesional/dataset/valid/images
