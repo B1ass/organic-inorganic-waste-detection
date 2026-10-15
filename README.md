@@ -39,7 +39,9 @@ The application provides a simple web interface with login functionality, a dete
 !pip install roboflow
 
 from roboflow import Roboflow
+
 rf = Roboflow(api_key="dqCpF4UkgspXf7kIVql3")
+
 project = rf.workspace("blasss-workspace").project("github-a2mu4")
 
 version = project.version(1)
